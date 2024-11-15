@@ -1,6 +1,15 @@
 class Employee:
 
     def __init__(self, first_name: str, last_name: str, base_salary: float, experience: int):
+        """Initialize an object model Employee"""
+        self._validate_attibutes(first_name, last_name, base_salary, experience)
+        self.first_name = first_name
+        self.last_name = last_name
+        self.base_salary = base_salary
+        self.experience = experience
+
+
+    def _validate_attibutes(self, first_name: str, last_name: str, base_salary: float, experience: int):
         if not isinstance(first_name, str):
             raise TypeError("first_name must be str type")
         if not isinstance(last_name, str):
@@ -17,12 +26,6 @@ class Employee:
             raise ValueError("base_salary must be positive")
         if experience < 0:
             raise ValueError("experience must be positive")
-
-        self.first_name = first_name
-        self.last_name = last_name
-        self.base_salary = base_salary
-        self.experience = experience
-
 
 
     def get_counted_salary (self):
