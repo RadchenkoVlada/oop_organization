@@ -24,14 +24,14 @@ class Employee:
         self.experience = experience
 
 
-    def get_counted_salary(self):
-        if 2 < self.experience <= 5:
-            return self.base_salary + 200
-        elif self.experience > 5:
+
+    def get_counted_salary (self):
+        """Calculate employee's salary based on base salary"""
+        if self.experience > 5:
             return self.base_salary * 1.2 + 500
+        if self.experience > 2:
+            return self.base_salary + 200
         return self.base_salary
-
-
 
 
 
