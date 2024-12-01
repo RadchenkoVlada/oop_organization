@@ -28,13 +28,18 @@ class EmployeeTestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             Employee("Vlada", "Radchenko", -4.5, 12)
 
+
+    TEST_CASES = [
+        ("Vlada", "Radchenko", 100.0, 2, 100.0),
+        ("Anna", "Bara", 150.3, 3, 350.3),
+        ("Anna", "Bara", 42.0, 5, 242.0),
+        ("Anna", "Bara", 42.0, 6, 550.4)
+    ]
+
     def test_get_counted_salary(self):
-        e1 = Employee("Vlada", "Radchenko", 100.0, 2)
-        self.assertEqual(100.0, e1.get_counted_salary())
-        e2 = Employee("Anna", "Bara", 150.3, 3)
-        self.assertEqual(350.3, e2.get_counted_salary())
-        e3 = Employee("Anna", "Bara", 42.0, 5)
-        self.assertEqual(242.0, e3.get_counted_salary())
-        e4 = Employee("Anna", "Bara", 42.0, 6)
-        self.assertEqual(550.4, e4.get_counted_salary())
+        for first_name, last_name, base_salary, experience, expected_salary in self.TEST_CASES:
+            with self.subTest(base_salary=base_salary, experience=experience):
+                employee = Employee(first_name, last_name, base_salary, experience)
+                self.assertEqual(employee.get_counted_salary(), expected_salary)
+
 

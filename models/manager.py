@@ -11,9 +11,12 @@ class Manager(Employee):
         self.team = self._validate_team(team)
 
 
-
     def _validate_team(self, team: Optional[List[Union[Developer, Designer]]]) -> List[Union[Developer, Designer]]:
-        """Validate and return team list"""
+        """
+        Validate and return team list
+
+        :raises TypeError: if type of 'team' is wrong.
+        """
         if team is None:
             return []
         if not isinstance(team, list):

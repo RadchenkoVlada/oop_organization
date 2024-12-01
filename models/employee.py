@@ -28,8 +28,8 @@ class Employee:
             raise ValueError("experience must be positive")
 
 
-    def get_counted_salary (self):
-        """Calculate employee's salary based on base salary"""
+    def get_counted_salary(self):
+        """Calculate employee's salary based on base salary ana experience"""
         if self.experience > 5:
             return self.base_salary * 1.2 + 500
         if self.experience > 2:

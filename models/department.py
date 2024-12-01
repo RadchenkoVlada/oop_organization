@@ -3,6 +3,7 @@ from typing import List, Optional
 import json
 from json import JSONDecoder
 
+```
 class Department:
     def __init__(self, managers: Optional[List[Manager]] = None):
         if managers is None:
